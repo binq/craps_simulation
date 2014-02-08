@@ -1,0 +1,37 @@
+:css
+  table {
+    border-collapse: collapse;
+    border: 1px solid black;
+  }
+   
+  table td {
+    border: 1px solid black;
+  }
+
+%h1 Results
+%table
+  %tr
+    %td ID
+    %td First Die
+    %td Second Die
+    %td Start Button
+    %td Start Bank
+    %td Start Don't Pass Line
+    %td Start Odds
+    %td End Button
+    %td End Bank
+    %td End Don't Pass Line
+    %td End Odds
+  - @rows.each do |row|
+    %tr
+      %td=row.id
+      %td=row.first_die
+      %td=row.second_die
+      %td=row.start_button
+      %td=row.start_bank
+      %td=row.start_dont_pass_line
+      %td=row.start_odds
+      %td=row.end_button
+      %td=row.end_bank
+      %td=row.end_dont_pass_line
+      %td=row.end_odds

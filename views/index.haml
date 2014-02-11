@@ -8,30 +8,48 @@
     border: 1px solid black;
   }
 
+  .dice {
+    font-weight: bold;
+  }
 %h1 Results
 %table
   %tr
-    %td ID
-    %td First Die
-    %td Second Die
-    %td Start Button
-    %td Start Bank
-    %td Start Don't Pass Line
-    %td Start Odds
-    %td End Button
-    %td End Bank
-    %td End Don't Pass Line
-    %td End Odds
-  - @rows.each do |row|
+    %th Name
+    %th Count
+    %th Percent
+    %th Mean Bank
+    %th Standard Deviation Bank
+    %th Mean Rounds
+    %th Standard Deviation Rounds
+  - @stats.each do |stats|
+    %tr
+      %td=stats.name
+      %td=stats.count
+      %td=stats.percent
+      %td=stats.mean_bank
+      %td=stats.standard_deviation_bank
+      %td=stats.mean_rounds
+      %td=stats.standard_deviation_rounds
+%hr/
+%table
+  %tr
+    %th ID
+    %th Dice
+    %th Button
+    %th Returned
+    %th Gained/Lost
+    %th Spent
+    %th Bank
+    %th Don't Pass Line
+    %th Odds
+  - @results.each do |row|
     %tr
       %td=row.id
-      %td=row.first_die
-      %td=row.second_die
-      %td=row.start_button
-      %td=row.start_bank
-      %td=row.start_dont_pass_line
-      %td=row.start_odds
-      %td=row.end_button
-      %td=row.end_bank
-      %td=row.end_dont_pass_line
-      %td=row.end_odds
+      %td.dice=row.dice
+      %td=row.button
+      %td=row.returned
+      %td=row.gained_lost
+      %td=row.spent
+      %td=row.bank
+      %td=row.dont_pass_line
+      %td=row.odds
